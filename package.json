@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@prisma/client": "^2.0.1",
+    "fielder": "^1.3.0",
     "isomorphic-unfetch": "^3.0.0",
     "next": "9.4.4",
     "next-auth": "^2.0.1",

@@ -15,7 +15,6 @@ const signin = async (profile, account, metadata) => {
     });
 
     const data = await res.json();
-    console.log({ data });
   } catch (e) {
     console.log("ERROR", e.message);
   }
