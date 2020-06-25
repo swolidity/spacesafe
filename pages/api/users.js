@@ -9,13 +9,20 @@ export default async function (req, res) {
 
   if (req.method === "POST") {
     const { body } = req;
-    console.log(body.email);
-    const user = await prisma.user.create({
-      data: {
-        name: body.name,
-        email: body.email,
-      },
-    });
+
+    let user;
+    try {
+      user = await prisma.user.create({
+        data: {
+          name: body.name,
+          email: body.email,
+        },
+      });
+    } catch (e) {
+      // user already exists so just return true to log them in
+      user = true;
+    }
+
     res.json(user);
   }
 }
