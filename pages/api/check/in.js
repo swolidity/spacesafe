@@ -6,7 +6,7 @@ export default async function (req, res) {
 
   if (session) {
     const { body } = req;
-    console.log({ body });
+
     res.json(body);
     return;
   }

@@ -13,13 +13,11 @@ export default () => {
   });
 
   const handleSubmit = useCallback(
-    async (e) => {
+    (e) => {
       e.preventDefault();
 
-      console.log(fields);
-
-      const transformed = await Object.entries(fields).reduce(
-        (p, [key, field]) => ({ [key]: field.value }),
+      const transformed = Object.entries(fields).reduce(
+        (acc, [key, field]) => ({ ...acc, [key]: field.value }),
         {}
       );
 
@@ -37,8 +35,8 @@ export default () => {
   return (
     <form>
       <select {...locationProps}>
-        <option value="MurrayHall">Murray Hall</option>
-        <option value="BoardmanHall">Boardman Hall</option>
+        <option value="Murray Hall">Murray Hall</option>
+        <option value="Boardman Hall">Boardman Hall</option>
       </select>
 
       <input type="number" {...roomNumberProps} />
