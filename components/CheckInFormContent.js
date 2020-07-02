@@ -43,7 +43,9 @@ export default () => {
     <form>
       <select {...locationProps}>
         {data.locations.map((location) => (
-          <option value={location.id}>{location.name}</option>
+          <option key={location.id} value={location.id}>
+            {location.name}
+          </option>
         ))}
       </select>
 
