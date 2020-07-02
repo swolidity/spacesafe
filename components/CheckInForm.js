@@ -1,7 +1,7 @@
 import { FielderProvider, useForm } from "fielder";
 import CheckInFormContent from "../components/CheckInFormContent";
 
-export default () => {
+export default ({ locations }) => {
   const state = useForm();
 
   return (

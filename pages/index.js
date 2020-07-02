@@ -2,7 +2,7 @@ import React from "react";
 import { useSession } from "next-auth/client";
 import CheckInForm from "../components/CheckInForm";
 
-export default () => {
+export default ({ data }) => {
   const [session, loading] = useSession();
 
   return (

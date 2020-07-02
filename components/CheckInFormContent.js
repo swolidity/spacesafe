@@ -1,7 +1,11 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useField, useFormContext } from "fielder";
+import useSWR from "swr";
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default () => {
+  const { data, error } = useSWR("/api/admin/locations", fetcher);
   const { fields } = useFormContext();
 
   const [locationProps] = useField({
@@ -32,11 +36,15 @@ export default () => {
     [fields]
   );
 
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+
   return (
     <form>
       <select {...locationProps}>
-        <option value="Murray Hall">Murray Hall</option>
-        <option value="Boardman Hall">Boardman Hall</option>
+        {data.locations.map((location) => (
+          <option value={location.id}>{location.name}</option>
+        ))}
       </select>
 
       <input type="number" {...roomNumberProps} />
