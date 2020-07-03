@@ -34,7 +34,7 @@ export default () => {
         {}
       );
 
-      fetch("http://localhost:3000/api/check/in", {
+      fetch(`${process.env.NEXT_PUBLIC_SITE}/api/check/in`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
