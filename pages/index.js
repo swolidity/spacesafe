@@ -1,10 +1,15 @@
 import React from "react";
 import { useSession } from "next-auth/client";
 import CheckInForm from "../components/CheckInForm";
-import { Flex, Box, Avatar, Link } from "@chakra-ui/core";
+import { Flex, Box, Avatar, Button, Link } from "@chakra-ui/core";
+import { chakra } from "@chakra-ui/system";
+import useSWR from "swr";
 
-export default ({ data }) => {
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+export default () => {
   const [session, loading] = useSession();
+  const { data, error } = useSWR("/api/check/in", fetcher);
 
   return (
     <div>
@@ -35,6 +40,18 @@ export default ({ data }) => {
           </Box>
         )}
         {session && <CheckInForm />}
+
+        {session && data && (
+          <div>
+            {data.checkIns.map((checkIn) => (
+              <chakra.div key={checkIn.id}>
+                {checkIn.id}
+
+                <Button>Check Out</Button>
+              </chakra.div>
+            ))}
+          </div>
+        )}
       </Box>
     </div>
   );

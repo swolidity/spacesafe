@@ -1,18 +1,12 @@
 import * as React from "react";
-import {
-  ColorModeProvider,
-  ThemeProvider,
-  GlobalStyle,
-} from "@chakra-ui/system";
-import { CSSReset } from "@chakra-ui/core";
-import theme from "@chakra-ui/theme";
+import { ChakraProvider, CSSReset } from "@chakra-ui/core";
+
+import theme from "../chakra";
 
 export default ({ Component, pageProps }) => (
-  <ThemeProvider theme={theme}>
-    <ColorModeProvider>
-      <CSSReset />
-      <GlobalStyle />
-      <Component {...pageProps} />
-    </ColorModeProvider>
-  </ThemeProvider>
+  <ChakraProvider theme={theme}>
+    <CSSReset />
+
+    <Component {...pageProps} />
+  </ChakraProvider>
 );

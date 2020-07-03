@@ -6,6 +6,21 @@ const prisma = new PrismaClient();
 export default async function (req, res) {
   const session = await getSession({ req });
 
+  if (req.method === "GET") {
+    const checkIns = await prisma.activityLog.findMany({
+      where: {
+        AND: [
+          { user: { email: session.user.email } },
+          {
+            checkOut: null,
+          },
+        ],
+      },
+    });
+
+    res.json({ checkIns });
+  }
+
   if (session) {
     const { body } = req;
 
