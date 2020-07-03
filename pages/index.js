@@ -11,6 +11,18 @@ export default () => {
   const [session, loading] = useSession();
   const { data, error } = useSWR("/api/check/in", fetcher);
 
+  const checkOut = async (checkInID) => {
+    const res = await fetch("/api/check/out", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        checkInID,
+      }),
+    });
+  };
+
   return (
     <div>
       <Flex justify="space-between" align="center" px={6} py={3}>
@@ -33,7 +45,12 @@ export default () => {
         )}
       </Flex>
 
-      <Box p={6} background="#f8f8f8" height="100%">
+      <Box
+        p={6}
+        background="#f8f8f8"
+        height="100%"
+        style={{ maxWidth: "800px", margin: "0 auto" }}
+      >
         {!session && (
           <Box>
             <a href="/api/auth/signin">Sign in</a>
@@ -47,7 +64,14 @@ export default () => {
               <chakra.div key={checkIn.id}>
                 {checkIn.id}
 
-                <Button>Check Out</Button>
+                <Button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    checkOut(checkIn.id);
+                  }}
+                >
+                  Check Out
+                </Button>
               </chakra.div>
             ))}
           </div>

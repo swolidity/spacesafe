@@ -24,6 +24,9 @@ export default async function (req, res) {
     if (!body.checkInID) throw new Error("No checkInID");
 
     const checkOut = await prisma.activityLog.update({
+      where: {
+        id: body.checkInID,
+      },
       data: {
         checkOut: new Date(),
       },
