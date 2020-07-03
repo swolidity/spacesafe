@@ -9,7 +9,7 @@ const site =
 
 const signin = async (profile, account, metadata) => {
   try {
-    const res = await fetch(`${url}/api/users`, {
+    const res = await fetch(`${site}/api/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
