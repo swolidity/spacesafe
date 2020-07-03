@@ -2,9 +2,14 @@ import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import fetch from "isomorphic-unfetch";
 
+const url =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : process.env.VERCEL_URL;
+
 const signin = async (profile, account, metadata) => {
   try {
-    const res = await fetch("http://localhost:3000/api/users", {
+    const res = await fetch(`${url}/api/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +28,7 @@ const signin = async (profile, account, metadata) => {
 };
 
 const options = {
-  site: process.env.SITE || "http://localhost:3000",
+  site: url,
 
   // Configure one or more authentication providers
   providers: [
@@ -36,9 +41,6 @@ const options = {
   callbacks: {
     signin,
   },
-
-  // A database is optional, but required to persist accounts in a database
-  database: process.env.DATABASE_URL,
 };
 
 export default (req, res) => NextAuth(req, res, options);
