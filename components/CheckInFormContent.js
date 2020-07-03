@@ -1,6 +1,15 @@
 import { useCallback, useEffect } from "react";
 import { useField, useFormContext } from "fielder";
 import useSWR from "swr";
+import {
+  Flex,
+  Box,
+  Button,
+  Input,
+  FormControl,
+  FormLabel,
+  Select,
+} from "@chakra-ui/core";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -41,17 +50,25 @@ export default () => {
 
   return (
     <form>
-      <select {...locationProps}>
-        {data.locations.map((location) => (
-          <option key={location.id} value={location.id}>
-            {location.name}
-          </option>
-        ))}
-      </select>
+      <FormControl>
+        <FormLabel>Location</FormLabel>
+        <Select {...locationProps} placeholder="Select location">
+          {data.locations.map((location) => (
+            <option key={location.id} value={location.id}>
+              {location.name}
+            </option>
+          ))}
+        </Select>
+      </FormControl>
 
-      <input type="number" {...roomNumberProps} />
+      <FormControl mb={2}>
+        <FormLabel>Room Number</FormLabel>
+        <Input type="number" {...roomNumberProps} placeholder="Room number" />
+      </FormControl>
 
-      <button onClick={handleSubmit}>Check In</button>
+      <Button colorScheme="blue" onClick={handleSubmit}>
+        Check In
+      </Button>
     </form>
   );
 };
