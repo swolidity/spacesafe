@@ -2,7 +2,6 @@ import React from "react";
 import { useSession } from "next-auth/client";
 import CheckInForm from "../components/CheckInForm";
 import { Flex, Box, Avatar, Button, Link } from "@chakra-ui/core";
-import { chakra } from "@chakra-ui/system";
 import useSWR from "swr";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -56,13 +55,14 @@ export default () => {
             <a href="/api/auth/signin">Sign in</a>
           </Box>
         )}
-        {session && <CheckInForm />}
+
+        <Box mb={4}>{session && <CheckInForm />}</Box>
 
         {session && data && (
           <div>
             {data.checkIns.map((checkIn) => (
-              <chakra.div key={checkIn.id}>
-                {checkIn.id}
+              <Flex key={checkIn.id} justify="space-between">
+                <Box>{checkIn.id}</Box>
 
                 <Button
                   onClick={(e) => {
@@ -72,7 +72,7 @@ export default () => {
                 >
                   Check Out
                 </Button>
-              </chakra.div>
+              </Flex>
             ))}
           </div>
         )}
