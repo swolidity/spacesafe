@@ -2,10 +2,10 @@ import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import fetch from "isomorphic-unfetch";
 
-const url =
+const site =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : process.env.VERCEL_URL;
+    : process.env.SITE;
 
 const signin = async (profile, account, metadata) => {
   try {
@@ -28,7 +28,7 @@ const signin = async (profile, account, metadata) => {
 };
 
 const options = {
-  site: url,
+  site,
 
   // Configure one or more authentication providers
   providers: [
