@@ -13,6 +13,9 @@ export default async function (req, res) {
           checkOut: null,
         },
       },
+      include: {
+        location: true,
+      },
     });
 
     res.json({ checkOuts });

@@ -16,6 +16,9 @@ export default async function (req, res) {
           },
         ],
       },
+      include: {
+        location: true,
+      },
     });
 
     res.json({ checkIns });

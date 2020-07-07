@@ -1,8 +1,9 @@
 import React from "react";
 import { useSession } from "next-auth/client";
 import CheckInForm from "../components/CheckInForm";
-import { Flex, Box, Avatar, Button, Link } from "@chakra-ui/core";
+import { Flex, Box, Avatar, Button, Link, Text } from "@chakra-ui/core";
 import useSWR from "swr";
+import { format } from "date-fns";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -61,8 +62,13 @@ export default () => {
         {session && data && (
           <div>
             {data.checkIns.map((checkIn) => (
-              <Flex key={checkIn.id} justify="space-between">
-                <Box>{checkIn.id}</Box>
+              <Flex key={checkIn.id} justify="space-between" align="center">
+                <Box>
+                  <Text>{checkIn.location.name}</Text>
+                  <Box>
+                    {format(new Date(checkIn.checkIn), "MM/dd/yyyy HH:mm:ss")}
+                  </Box>
+                </Box>
 
                 <Button
                   onClick={(e) => {
