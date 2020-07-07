@@ -52,8 +52,10 @@ export default () => {
         style={{ maxWidth: "800px", margin: "0 auto" }}
       >
         {!session && (
-          <Box>
-            <a href="/api/auth/signin">Sign in</a>
+          <Box textAlign="center" mt={6}>
+            <Button size="lg" colorScheme="blue">
+              <a href="/api/auth/signin">Sign in</a>
+            </Button>
           </Box>
         )}
 
