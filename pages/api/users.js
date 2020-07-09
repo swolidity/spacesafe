@@ -16,6 +16,7 @@ export default async function (req, res) {
         data: {
           name: body.name,
           email: body.email,
+          image: body.image,
         },
       });
     } catch (e) {
