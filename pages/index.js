@@ -25,26 +25,6 @@ export default () => {
 
   return (
     <div>
-      <Flex justify="space-between" align="center" px={6} py={3}>
-        SafeSpace
-        {!session && (
-          <Box>
-            <a href="/api/auth/signin">Sign in</a>
-          </Box>
-        )}
-        {session && (
-          <Box>
-            <Flex align="center">
-              <Avatar src={session.user.image} alt={session.user.name} mr={3} />
-
-              <Box>
-                <a href="/api/auth/signout">Sign out</a>
-              </Box>
-            </Flex>
-          </Box>
-        )}
-      </Flex>
-
       <Box
         p={6}
         background="#f8f8f8"
@@ -52,8 +32,10 @@ export default () => {
         style={{ maxWidth: "800px", margin: "0 auto" }}
       >
         {!session && (
-          <Box>
-            <a href="/api/auth/signin">Sign in</a>
+          <Box textAlign="center" mt={6}>
+            <Button size="lg" colorScheme="blue">
+              <a href="/api/auth/signin">Sign in</a>
+            </Button>
           </Box>
         )}
 

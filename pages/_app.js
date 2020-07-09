@@ -2,11 +2,14 @@ import * as React from "react";
 import { ChakraProvider, CSSReset } from "@chakra-ui/core";
 
 import theme from "../chakra";
+import Layout from "../components/Layout";
 
 export default ({ Component, pageProps }) => (
   <ChakraProvider theme={theme}>
     <CSSReset />
 
-    <Component {...pageProps} />
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   </ChakraProvider>
 );
