@@ -8,6 +8,7 @@ import {
   Text,
 } from "@chakra-ui/core";
 import useSWR from "swr";
+import AdminNavbar from "../../components/AdminNavbar";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -18,10 +19,9 @@ export default function AdminUsersPage() {
 
   return (
     <Box p={6}>
+      <AdminNavbar />
       <Flex justify="space-between" align="center" mb={4}>
         <Heading>Users</Heading>
-
-        <Button colorScheme="blue">Add Location</Button>
       </Flex>
 
       <Stack spacing={3}>

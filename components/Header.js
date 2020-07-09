@@ -25,6 +25,10 @@ export default function Header() {
       {session && (
         <Box>
           <Flex align="center">
+            <NextLink href="/admin">
+              <Link mr={6}>Admin</Link>
+            </NextLink>
+
             <Avatar src={session.user.image} alt={session.user.name} mr={3} />
 
             <Box>
