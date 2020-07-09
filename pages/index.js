@@ -25,12 +25,7 @@ export default () => {
 
   return (
     <div>
-      <Box
-        p={6}
-        background="#f8f8f8"
-        height="100%"
-        style={{ maxWidth: "800px", margin: "0 auto" }}
-      >
+      <Box p={6} style={{ maxWidth: "800px", margin: "0 auto" }}>
         {!session && (
           <Box textAlign="center" mt={6}>
             <Button size="lg" colorScheme="blue">

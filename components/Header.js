@@ -6,7 +6,13 @@ export default function Header() {
   const [session, loading] = useSession();
 
   return (
-    <Flex justify="space-between" align="center" px={6} py={3}>
+    <Flex
+      justify="space-between"
+      align="center"
+      px={6}
+      py={3}
+      backgroundColor="white"
+    >
       <NextLink href="/" passHref>
         <Link>SafeSpace</Link>
       </NextLink>
