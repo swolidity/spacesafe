@@ -2,7 +2,7 @@ import React from "react";
 import { useSession } from "next-auth/client";
 import CheckInForm from "../components/CheckInForm";
 import { Flex, Box, Avatar, Button, Link, Text } from "@chakra-ui/core";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 import { format } from "date-fns";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -11,7 +11,20 @@ export default () => {
   const [session, loading] = useSession();
   const { data, error } = useSWR("/api/check/in", fetcher);
 
-  const checkOut = async (checkInID) => {
+  const checkOut = async (checkInID, index) => {
+    console.log("index", index);
+    console.log(data.checkIns.slice(index, 1));
+    mutate(
+      "/api/check/in",
+      {
+        checkIns: [
+          ...data.checkIns.slice(0, index),
+          ...data.checkIns.slice(index + 1),
+        ],
+      },
+      false
+    );
+
     const res = await fetch("/api/check/out", {
       method: "POST",
       headers: {
@@ -22,6 +35,8 @@ export default () => {
       }),
     });
   };
+
+  console.log({ data });
 
   return (
     <div>
@@ -38,7 +53,7 @@ export default () => {
 
         {session && data && (
           <div>
-            {data.checkIns.map((checkIn) => (
+            {data.checkIns.map((checkIn, index) => (
               <Flex key={checkIn.id} justify="space-between" align="center">
                 <Box>
                   <Text>{checkIn.location.name}</Text>
@@ -50,7 +65,7 @@ export default () => {
                 <Button
                   onClick={(e) => {
                     e.preventDefault();
-                    checkOut(checkIn.id);
+                    checkOut(checkIn.id, index);
                   }}
                 >
                   Check Out

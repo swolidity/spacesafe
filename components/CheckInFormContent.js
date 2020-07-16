@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { useField, useFormContext } from "fielder";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 import {
   Flex,
   Box,
@@ -34,13 +34,28 @@ export default () => {
         {}
       );
 
-      fetch(`${process.env.NEXT_PUBLIC_SITE}/api/check/in`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      mutate(
+        "/api/check/in",
+        async (data) => {
+          const checkInRes = await fetch(
+            `${process.env.NEXT_PUBLIC_SITE}/api/check/in`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(transformed),
+            }
+          );
+
+          const checkIn = await checkInRes.json();
+
+          console.log({ checkIn });
+
+          return { ...data, checkIns: [...data.checkIns, checkIn] };
         },
-        body: JSON.stringify(transformed),
-      });
+        false
+      );
     },
     [fields]
   );

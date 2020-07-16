@@ -41,6 +41,9 @@ export default async function (req, res) {
         },
         roomNumber: parseInt(body.roomNumber),
       },
+      include: {
+        location: true,
+      },
     });
 
     res.json(checkin);
