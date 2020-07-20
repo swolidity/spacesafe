@@ -1,6 +1,7 @@
 import { FielderProvider, useForm } from "fielder";
 import CheckInFormContent from "../components/CheckInFormContent";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
+import FieldSiteForm from "./FieldSiteForm";
 
 export default ({ locations }) => {
   const state = useForm();
@@ -17,7 +18,9 @@ export default ({ locations }) => {
           <TabPanel>
             <CheckInFormContent />
           </TabPanel>
-          <TabPanel>Field Sites</TabPanel>
+          <TabPanel>
+            <FieldSiteForm />
+          </TabPanel>
         </TabPanels>
       </Tabs>
     </FielderProvider>
