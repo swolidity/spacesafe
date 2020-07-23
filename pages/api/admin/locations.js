@@ -4,7 +4,11 @@ const prisma = new PrismaClient();
 
 export default async function (req, res) {
   if (req.method === "GET") {
-    const locations = await prisma.location.findMany();
+    const locations = await prisma.location.findMany({
+      orderBy: {
+        name: "asc",
+      },
+    });
     res.json({ locations });
   }
 
