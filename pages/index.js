@@ -1,6 +1,6 @@
 import React from "react";
 import { useSession } from "next-auth/client";
-import CheckInForm from "../components/CheckInForm";
+import CheckInTabs from "../components/CheckInTabs";
 import { Flex, Box, Avatar, Button, Link, Text } from "@chakra-ui/core";
 import useSWR, { mutate } from "swr";
 import { format } from "date-fns";
@@ -12,8 +12,6 @@ export default () => {
   const { data, error } = useSWR("/api/check/in", fetcher);
 
   const checkOut = async (checkInID, index) => {
-    console.log("index", index);
-    console.log(data.checkIns.slice(index, 1));
     mutate(
       "/api/check/in",
       {
@@ -49,7 +47,7 @@ export default () => {
           </Box>
         )}
 
-        <Box mb={4}>{session && <CheckInForm />}</Box>
+        <Box mb={4}>{session && <CheckInTabs />}</Box>
 
         {session && data && (
           <div>

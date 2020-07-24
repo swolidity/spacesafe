@@ -25,27 +25,62 @@ export default async function (req, res) {
   }
 
   if (session) {
-    const { body } = req;
+    const { body, query } = req;
 
-    const checkin = await prisma.activityLog.create({
-      data: {
-        user: {
-          connect: {
-            email: session.user.email,
+    if (query.fieldSite) {
+      const location = await prisma.location.upsert({
+        create: {
+          name: body.location,
+          fieldSite: true,
+        },
+        update: {},
+        where: {
+          name: body.location,
+        },
+      });
+
+      const checkin = await prisma.activityLog.create({
+        data: {
+          user: {
+            connect: {
+              email: session.user.email,
+            },
+          },
+          location: {
+            connect: {
+              id: location.id,
+            },
           },
         },
-        location: {
-          connect: {
-            id: body.location,
-          },
+        include: {
+          location: true,
         },
-        roomNumber: parseInt(body.roomNumber),
-      },
-      include: {
-        location: true,
-      },
-    });
+      });
 
-    res.json(checkin);
+      res.json(checkin);
+    } else {
+      const checkin = await prisma.activityLog.create({
+        data: {
+          user: {
+            connect: {
+              email: session.user.email,
+            },
+          },
+          location: {
+            connect: {
+              id: body.location,
+            },
+          },
+          roomNumber: parseInt(body.roomNumber)
+            ? parseInt(body.roomNumber)
+            : null,
+        },
+        include: {
+          location: true,
+        },
+      });
+
+      res.json(checkin);
+    }
   }
 }

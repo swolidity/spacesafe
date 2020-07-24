@@ -1,28 +1,19 @@
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
+import { FormControl, FormLabel, Input, Button } from "@chakra-ui/core";
 import { useField, useFormContext } from "fielder";
 import useSWR, { mutate } from "swr";
-import {
-  Flex,
-  Box,
-  Button,
-  Input,
-  FormControl,
-  FormLabel,
-  Select,
-} from "@chakra-ui/core";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export default () => {
-  const { data, error } = useSWR("/api/admin/locations", fetcher);
+export default function FieldSiteFormContent() {
+  const { data, error } = useSWR(
+    "/api/admin/locations?fieldSite=true",
+    fetcher
+  );
   const { fields } = useFormContext();
 
   const [locationProps] = useField({
     name: "location",
-  });
-
-  const [roomNumberProps] = useField({
-    name: "roomNumber",
   });
 
   const handleSubmit = useCallback(
@@ -38,7 +29,7 @@ export default () => {
         "/api/check/in",
         async (data) => {
           const checkInRes = await fetch(
-            `${process.env.NEXT_PUBLIC_SITE}/api/check/in`,
+            `${process.env.NEXT_PUBLIC_SITE}/api/check/in?fieldSite=true`,
             {
               method: "POST",
               headers: {
@@ -62,26 +53,15 @@ export default () => {
   if (!data) return <div>loading...</div>;
 
   return (
-    <form>
-      <FormControl>
-        <FormLabel>Location</FormLabel>
-        <Select {...locationProps} placeholder="Select location">
-          {data.locations.map((location) => (
-            <option key={location.id} value={location.id}>
-              {location.name}
-            </option>
-          ))}
-        </Select>
-      </FormControl>
-
+    <div>
       <FormControl mb={2}>
-        <FormLabel>Room Number</FormLabel>
-        <Input type="number" {...roomNumberProps} placeholder="Room number" />
+        <FormLabel>Field Site</FormLabel>
+        <Input placeholder="Field Site" {...locationProps} />
       </FormControl>
 
       <Button colorScheme="blue" onClick={handleSubmit}>
         Check In
       </Button>
-    </form>
+    </div>
   );
-};
+}
