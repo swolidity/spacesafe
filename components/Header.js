@@ -1,5 +1,5 @@
 import { useSession } from "next-auth/client";
-import { Flex, Box, Avatar, Link } from "@chakra-ui/core";
+import { Flex, Box, Avatar, Link, Heading } from "@chakra-ui/core";
 import NextLink from "next/link";
 
 export default function Header() {
@@ -14,7 +14,9 @@ export default function Header() {
       backgroundColor="white"
     >
       <NextLink href="/" passHref>
-        <Link>SafeSpace</Link>
+        <Link>
+          <Heading>UMSpaceSafe</Heading>
+        </Link>
       </NextLink>
 
       {!session && (
