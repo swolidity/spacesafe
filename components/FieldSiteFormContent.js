@@ -74,7 +74,7 @@ export default function FieldSiteFormContent() {
         <FormLabel>Notes</FormLabel>
 
         <Textarea
-          plceholder="Add any additional information here..."
+          placeholder="Add any additional information here..."
           {...notesProps}
         />
       </FormControl>
