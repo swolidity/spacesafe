@@ -51,6 +51,7 @@ export default async function (req, res) {
               id: location.id,
             },
           },
+          notes: body.notes,
         },
         include: {
           location: true,
@@ -74,6 +75,7 @@ export default async function (req, res) {
           roomNumber: parseInt(body.roomNumber)
             ? parseInt(body.roomNumber)
             : null,
+          notes: body.notes,
         },
         include: {
           location: true,

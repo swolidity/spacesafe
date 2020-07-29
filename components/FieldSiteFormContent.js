@@ -1,5 +1,11 @@
 import { useCallback } from "react";
-import { FormControl, FormLabel, Input, Button } from "@chakra-ui/core";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Textarea,
+} from "@chakra-ui/core";
 import { useField, useFormContext } from "fielder";
 import useSWR, { mutate } from "swr";
 
@@ -14,6 +20,10 @@ export default function FieldSiteFormContent() {
 
   const [locationProps] = useField({
     name: "location",
+  });
+
+  const [notesProps] = useField({
+    name: "notes",
   });
 
   const handleSubmit = useCallback(
@@ -56,7 +66,17 @@ export default function FieldSiteFormContent() {
     <div>
       <FormControl mb={2}>
         <FormLabel>Field Site</FormLabel>
+
         <Input placeholder="Field Site" {...locationProps} />
+      </FormControl>
+
+      <FormControl>
+        <FormLabel>Notes</FormLabel>
+
+        <Textarea
+          plceholder="Add any additional information here..."
+          {...notesProps}
+        />
       </FormControl>
 
       <Button colorScheme="blue" onClick={handleSubmit}>

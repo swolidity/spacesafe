@@ -9,6 +9,7 @@ import {
   FormControl,
   FormLabel,
   Select,
+  Textarea,
 } from "@chakra-ui/core";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -23,6 +24,10 @@ export default () => {
 
   const [roomNumberProps] = useField({
     name: "roomNumber",
+  });
+
+  const [notesProps] = useField({
+    name: "notes",
   });
 
   const handleSubmit = useCallback(
@@ -77,6 +82,15 @@ export default () => {
       <FormControl mb={2}>
         <FormLabel>Room Number</FormLabel>
         <Input type="number" {...roomNumberProps} placeholder="Room number" />
+      </FormControl>
+
+      <FormControl>
+        <FormLabel>Notes</FormLabel>
+
+        <Textarea
+          plceholder="Add any additional information here..."
+          {...notesProps}
+        />
       </FormControl>
 
       <Button colorScheme="blue" onClick={handleSubmit}>
