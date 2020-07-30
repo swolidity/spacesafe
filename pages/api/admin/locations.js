@@ -4,8 +4,7 @@ const prisma = new PrismaClient();
 
 export default async function (req, res) {
   if (req.method === "GET") {
-    if (req.query.fieldSite) {
-      console.log(req.query);
+    if (req.query.fieldSite == "true") {
       const locations = await prisma.location.findMany({
         orderBy: {
           name: "asc",
@@ -28,6 +27,9 @@ export default async function (req, res) {
       const locations = await prisma.location.findMany({
         orderBy: {
           name: "asc",
+        },
+        where: {
+          fieldSite: false,
         },
       });
       res.json({ locations });

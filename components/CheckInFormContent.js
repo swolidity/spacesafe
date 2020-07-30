@@ -18,7 +18,10 @@ import {
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default () => {
-  const { data, error } = useSWR("/api/admin/locations", fetcher);
+  const { data, error } = useSWR(
+    "/api/admin/locations?fieldSite=false",
+    fetcher
+  );
   const { fields } = useFormContext();
   const toast = useToast();
 
