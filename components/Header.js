@@ -1,5 +1,5 @@
 import { useSession } from "next-auth/client";
-import { Flex, Box, Avatar, Link, Heading } from "@chakra-ui/core";
+import { Flex, Box, Avatar, Link, Heading, Button } from "@chakra-ui/core";
 import NextLink from "next/link";
 
 export default function Header() {
@@ -20,9 +20,9 @@ export default function Header() {
       </NextLink>
 
       {!session && (
-        <Box>
+        <Button colorSchem="blue">
           <a href="/api/auth/signin">Sign in</a>
-        </Box>
+        </Button>
       )}
       {session && (
         <Box>

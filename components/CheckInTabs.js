@@ -20,8 +20,8 @@ export default function CheckInTabs() {
       </Text>
       <Tabs>
         <TabList>
-          <Tab>Building</Tab>
-          <Tab>Field Site</Tab>
+          <Tab>UM Building</Tab>
+          <Tab>Off Campus Site</Tab>
         </TabList>
 
         <TabPanels>
