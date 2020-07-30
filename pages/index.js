@@ -10,6 +10,7 @@ import {
   Text,
   Stack,
   Heading,
+  useToast,
 } from "@chakra-ui/core";
 import useSWR, { mutate } from "swr";
 import { format } from "date-fns";
@@ -19,8 +20,16 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export default () => {
   const [session, loading] = useSession();
   const { data, error } = useSWR("/api/check/in", fetcher);
+  const toast = useToast();
 
   const checkOut = async (checkInID, index) => {
+    toast({
+      title: "Successfully checked out.",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+
     mutate(
       "/api/check/in",
       {

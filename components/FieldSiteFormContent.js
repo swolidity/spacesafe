@@ -5,6 +5,7 @@ import {
   Input,
   Button,
   Textarea,
+  useToast,
 } from "@chakra-ui/core";
 import { useField, useFormContext } from "fielder";
 import useSWR, { mutate } from "swr";
@@ -26,6 +27,8 @@ export default function FieldSiteFormContent() {
     name: "notes",
   });
 
+  const toast = useToast();
+
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
@@ -34,6 +37,13 @@ export default function FieldSiteFormContent() {
         (acc, [key, field]) => ({ ...acc, [key]: field.value }),
         {}
       );
+
+      toast({
+        title: "Successfully checked in.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
 
       mutate(
         "/api/check/in",

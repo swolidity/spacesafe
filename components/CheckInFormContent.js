@@ -10,6 +10,8 @@ import {
   FormLabel,
   Select,
   Textarea,
+  useToast,
+  toast,
 } from "@chakra-ui/core";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -17,6 +19,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export default () => {
   const { data, error } = useSWR("/api/admin/locations", fetcher);
   const { fields } = useFormContext();
+  const toast = useToast();
 
   const [locationProps] = useField({
     name: "location",
@@ -38,6 +41,13 @@ export default () => {
         (acc, [key, field]) => ({ ...acc, [key]: field.value }),
         {}
       );
+
+      toast({
+        title: "Successfully checked in.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
 
       mutate(
         "/api/check/in",
