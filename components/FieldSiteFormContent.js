@@ -8,7 +8,7 @@ import {
   useToast,
   List,
   ListItem,
-  ListIcon,
+  FormHelperText,
 } from "@chakra-ui/core";
 import { useField, useFormContext } from "fielder";
 import useSWR, { mutate } from "swr";
@@ -112,6 +112,11 @@ export default function FieldSiteFormContent() {
             {...getInputProps()}
           />
 
+          <FormHelperText>
+            Search for field site. If field site is not found enter full name in
+            to create a new record in the database.
+          </FormHelperText>
+
           <List {...getMenuProps()}>
             {isOpen &&
               locations.map((item, index) => (
@@ -133,6 +138,10 @@ export default function FieldSiteFormContent() {
 
       <FormControl>
         <FormLabel>Notes</FormLabel>
+        <FormHelperText mb={1}>
+          Provide other info as needed (e.g., UM or Non-UM personnel unable to
+          access UMSpaceSafe, COVID safety concerns)
+        </FormHelperText>
 
         <Textarea
           placeholder="Add any additional information here..."
@@ -140,7 +149,7 @@ export default function FieldSiteFormContent() {
         />
       </FormControl>
 
-      <Button colorScheme="blue" onClick={handleSubmit}>
+      <Button colorScheme="blue" onClick={handleSubmit} my={3}>
         Check In
       </Button>
     </div>
