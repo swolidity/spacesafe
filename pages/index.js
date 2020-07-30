@@ -1,7 +1,16 @@
 import React from "react";
 import { useSession } from "next-auth/client";
 import CheckInTabs from "../components/CheckInTabs";
-import { Flex, Box, Avatar, Button, Link, Text } from "@chakra-ui/core";
+import {
+  Flex,
+  Box,
+  Avatar,
+  Button,
+  Link,
+  Text,
+  Stack,
+  Heading,
+} from "@chakra-ui/core";
 import useSWR, { mutate } from "swr";
 import { format } from "date-fns";
 
@@ -70,10 +79,20 @@ export default () => {
 
         <Box mb={4}>{session && <CheckInTabs />}</Box>
 
+        <Heading mb={3}>Check Ins</Heading>
+
         {session && data && (
-          <div>
+          <Stack spacing={3}>
             {data.checkIns.map((checkIn, index) => (
-              <Flex key={checkIn.id} justify="space-between" align="center">
+              <Flex
+                key={checkIn.id}
+                justify="space-between"
+                align="center"
+                shadow="sm"
+                p={2}
+                rounded="5px"
+                backgroundColor="white"
+              >
                 <Box>
                   <Text>{checkIn.location.name}</Text>
                   <Box>
@@ -91,7 +110,7 @@ export default () => {
                 </Button>
               </Flex>
             ))}
-          </div>
+          </Stack>
         )}
       </Box>
     </div>
