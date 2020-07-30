@@ -106,16 +106,17 @@ export default function FieldSiteFormContent() {
       <FormControl mb={2}>
         <FormLabel>Field Site</FormLabel>
 
+        <FormHelperText mb={1}>
+          Search for field site and click to select from dropdown. If field site
+          is not found enter full name in to create a new record in the
+          database.
+        </FormHelperText>
+
         <div {...getComboboxProps()}>
           <Input
             placeholder="Search for a field site..."
             {...getInputProps()}
           />
-
-          <FormHelperText>
-            Search for field site. If field site is not found enter full name in
-            to create a new record in the database.
-          </FormHelperText>
 
           <List {...getMenuProps()}>
             {isOpen &&
