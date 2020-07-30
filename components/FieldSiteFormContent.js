@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import {
   FormControl,
   FormLabel,
@@ -6,15 +6,20 @@ import {
   Button,
   Textarea,
   useToast,
+  List,
+  ListItem,
+  ListIcon,
 } from "@chakra-ui/core";
 import { useField, useFormContext } from "fielder";
 import useSWR, { mutate } from "swr";
+import { useCombobox } from "downshift";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function FieldSiteFormContent() {
+  const [searchTerm, setSearchTerm] = React.useState(null);
   const { data, error } = useSWR(
-    "/api/admin/locations?fieldSite=true",
+    `/api/admin/locations?fieldSite=true&searchTerm=${searchTerm}`,
     fetcher
   );
   const { fields } = useFormContext();
@@ -29,6 +34,23 @@ export default function FieldSiteFormContent() {
 
   const toast = useToast();
 
+  const {
+    isOpen,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    getInputProps,
+    getComboboxProps,
+    highlightedIndex,
+    getItemProps,
+  } = useCombobox({
+    items: data?.locations.length ? data?.locations : [],
+    onInputValueChange: ({ inputValue }) => {
+      setSearchTerm(inputValue);
+    },
+    itemToString: (item) => item.name,
+  });
+
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
@@ -37,6 +59,8 @@ export default function FieldSiteFormContent() {
         (acc, [key, field]) => ({ ...acc, [key]: field.value }),
         {}
       );
+
+      transformed.location = searchTerm;
 
       toast({
         title: "Successfully checked in.",
@@ -69,15 +93,42 @@ export default function FieldSiteFormContent() {
     [fields]
   );
 
+  function handleSearchTermChange(event) {
+    setSearchTerm(event.target.value);
+  }
+
   if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+
+  const locations = data ? data.locations : [];
 
   return (
     <div>
       <FormControl mb={2}>
         <FormLabel>Field Site</FormLabel>
 
-        <Input placeholder="Field Site" {...locationProps} />
+        <div {...getComboboxProps()}>
+          <Input
+            placeholder="Search for a field site..."
+            {...getInputProps()}
+          />
+
+          <List {...getMenuProps()}>
+            {isOpen &&
+              locations.map((item, index) => (
+                <ListItem
+                  style={
+                    highlightedIndex === index
+                      ? { backgroundColor: "#bde4ff" }
+                      : {}
+                  }
+                  key={`${item}${index}`}
+                  {...getItemProps({ item, index })}
+                >
+                  {item.name}
+                </ListItem>
+              ))}
+          </List>
+        </div>
       </FormControl>
 
       <FormControl>
