@@ -88,7 +88,7 @@ export default () => {
 
         <Box mb={4}>{session && <CheckInTabs />}</Box>
 
-        <Heading mb={3}>Check Ins</Heading>
+        {session && data && <Heading mb={3}>Check Ins</Heading>}
 
         {session && data && (
           <Stack spacing={3}>
