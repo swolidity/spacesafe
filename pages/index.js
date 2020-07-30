@@ -62,13 +62,15 @@ export default () => {
             <Heading>Welcome.</Heading>
 
             <Text mt={6} mb={6}>
-              UMSpaceSafe is a tool to document research space use for the
-              purpose of managing and mitigating hazards, including potential
-              COVID-19 exposure.  All UMS personnel and students conducting
-              institutionally associated research are required to use this tool
-              when accessing and departing research associated spaces on and off
-              campus, including campus labs, research common areas, field sites,
-              farms, and non-UMS research centers.
+              UMSpaceSafe logs research space use for the purpose of mitigating
+              and responding to potential COVID-19 exposure or other hazards. 
+              All UM personnel and students conducting institutionally
+              associated research are required to use this tool when accessing
+              and departing research associated spaces, including 1) any
+              research lab or meeting spaces occupied by others, 2) any research
+              space you will access for more than 5 minutes, even when
+              unoccupied by others, and 3) any off-campus field sites, farms, or
+              non-UM facilities used in research.
             </Text>
 
             <Box p={6} mb={6}>
@@ -80,23 +82,29 @@ export default () => {
                 </ListItem>
 
                 <ListItem>
-                  UMSpaceSafe use data is stored in a secure database and
-                  accessible only to UMSpaceSafe administrators for the purpose
-                  of assessing and managing research safety, unless otherwise
-                  anonymized.
+                  UMSpaceSafe data is stored in a secure database and accessible
+                  only to UMSafeSpace administrators for the purpose of
+                  assessing and managing research safety (unless otherwise
+                  anonymized).
                 </ListItem>
 
                 <ListItem>
                   Your identity and contact information may be shared with
-                  institutional emergency responders (e.g,. COVID-19 response
-                  teams) or state/federal emergency responders (e.g., Maine CDC,
-                  law enforcement) where deemed necessary to ensure personnel
-                  and public safety (e.g., exposure tracing).
+                  institutional emergency personnel (e.g,. COVID-19 response
+                  team) or state/federal emergency responders (e.g., Maine CDC,
+                  law enforcement) where deemed necessary to facilitate UM
+                  personnel and public safety (e.g., exposure tracing).
                 </ListItem>
 
                 <ListItem>
-                  UMSpaceSafe does not guarantee against infection by COVID-19
+                  UMSafeSpace does not guarantee against infection by COVID-19
                   or other workplace hazards.
+                </ListItem>
+
+                <ListItem>
+                  This tool does not take the place of other UM COVID-related
+                  policies and procedures (UM COVID INFO SITE LINK) nor the
+                  place of other institutional approvals required for research.
                 </ListItem>
               </List>
             </Box>
