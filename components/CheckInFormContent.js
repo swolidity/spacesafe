@@ -81,47 +81,49 @@ export default () => {
   if (!data) return <div>loading...</div>;
 
   return (
-    <form>
-      <FormControl mb={2}>
-        <FormLabel>Location</FormLabel>
-        <FormHelperText mb={1}>Select building from dropdown.</FormHelperText>
-        <Select {...locationProps} placeholder="Select location">
-          {data.locations.map((location) => (
-            <option key={location.id} value={location.id}>
-              {location.name}
-            </option>
-          ))}
-        </Select>
-      </FormControl>
+    <Box shadow="sm" padding={5} backgroundColor="white">
+      <form>
+        <FormControl mb={2}>
+          <FormLabel>Location</FormLabel>
+          <FormHelperText mb={1}>Select building from dropdown.</FormHelperText>
+          <Select {...locationProps} placeholder="Select location">
+            {data.locations.map((location) => (
+              <option key={location.id} value={location.id}>
+                {location.name}
+              </option>
+            ))}
+          </Select>
+        </FormControl>
 
-      <FormControl mb={2}>
-        <FormLabel>Room Number</FormLabel>
+        <FormControl mb={2}>
+          <FormLabel>Room Number</FormLabel>
 
-        <FormHelperText mb={1}>
-          Enter complete room number (e.g., 313b)
-        </FormHelperText>
+          <FormHelperText mb={1}>
+            Enter complete room number (e.g., 313b)
+          </FormHelperText>
 
-        <Input type="number" {...roomNumberProps} placeholder="Room number" />
-      </FormControl>
+          <Input type="number" {...roomNumberProps} placeholder="Room number" />
+        </FormControl>
 
-      <FormControl>
-        <FormLabel>Notes</FormLabel>
+        <FormControl>
+          <FormLabel>Notes</FormLabel>
 
-        <FormHelperText mb={1}>
-          Provide other info as needed (e.g., room for building not in list, UM
-          or Non-UM personnel unable to access UMSpaceSafe, COVID safety
-          concerns)
-        </FormHelperText>
+          <FormHelperText mb={1}>
+            Provide other info as needed (e.g., room for building not in list,
+            UM or Non-UM personnel unable to access UMSpaceSafe, COVID safety
+            concerns)
+          </FormHelperText>
 
-        <Textarea
-          placeholder="Add any additional information here..."
-          {...notesProps}
-        />
-      </FormControl>
+          <Textarea
+            placeholder="Add any additional information here..."
+            {...notesProps}
+          />
+        </FormControl>
 
-      <Button colorScheme="blue" onClick={handleSubmit} my={3}>
-        Check In
-      </Button>
-    </form>
+        <Button colorScheme="blue" onClick={handleSubmit} my={3}>
+          Check In
+        </Button>
+      </form>
+    </Box>
   );
 };

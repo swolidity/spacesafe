@@ -13,7 +13,7 @@ import FieldSiteForm from "../components/FieldSiteForm";
 export default function CheckInTabs() {
   return (
     <Box>
-      <Text>
+      <Text p={4}>
         Use the following fields to sign in and out of any research space (lab,
         computer room, meeting area). Use the field work tab for off-campus
         research.

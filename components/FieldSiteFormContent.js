@@ -9,6 +9,7 @@ import {
   List,
   ListItem,
   FormHelperText,
+  Box,
 } from "@chakra-ui/core";
 import { useField, useFormContext } from "fielder";
 import useSWR, { mutate } from "swr";
@@ -102,7 +103,7 @@ export default function FieldSiteFormContent() {
   const locations = data ? data.locations : [];
 
   return (
-    <div>
+    <Box shadow="sm" padding={5} backgroundColor="white">
       <FormControl mb={2}>
         <FormLabel>Field Site</FormLabel>
 
@@ -153,6 +154,6 @@ export default function FieldSiteFormContent() {
       <Button colorScheme="blue" onClick={handleSubmit} my={3}>
         Check In
       </Button>
-    </div>
+    </Box>
   );
 }
