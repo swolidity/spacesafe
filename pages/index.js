@@ -11,6 +11,8 @@ import {
   Stack,
   Heading,
   useToast,
+  List,
+  ListItem,
 } from "@chakra-ui/core";
 import useSWR, { mutate } from "swr";
 import { format } from "date-fns";
@@ -56,28 +58,49 @@ export default () => {
     <div>
       <Box p={6} style={{ maxWidth: "800px", margin: "0 auto" }}>
         {!session && (
-          <Box>
+          <Box backgroundColor="white" borderRadius="sm" p={3}>
+            <Heading>Welcome.</Heading>
+
             <Text mt={6} mb={6}>
-              UMSafeSpace is a tool to document research space use for the
+              UMSpaceSafe is a tool to document research space use for the
               purpose of managing and mitigating hazards, including potential
               COVID-19 exposure.  All UMS personnel and students conducting
               institutionally associated research are required to use this tool
               when accessing and departing research associated spaces on and off
               campus, including campus labs, research common areas, field sites,
-              farms, and non-UMS research centers. • UMSafeSpace does not
-              passively track your activities and is not intended for
-              documenting space use outside of institutionally authorized
-              research activities. • Space use data is stored in a secure
-              database and accessible only to UMSafeSpace administrators for the
-              purpose of assessing and managing research safety, unless
-              otherwise anonymized. • Your identity and contact information may
-              be shared with institutional emergency responders (e.g,. COVID-19
-              response teams) or state/federal emergency responders (e.g., Maine
-              CDC, law enforcement) where deemed necessary to ensure personnel
-              and public safety (e.g., exposure tracing). • UMSafeSpace does not
-              guarantee against infection by COVID-19 or other workplace
-              hazards.
+              farms, and non-UMS research centers.
             </Text>
+
+            <Box p={6} mb={6}>
+              <List spacing={2} mb={2} styleType="disc">
+                <ListItem>
+                  UMSpaceSafe does not passively track your activities and is
+                  not intended for documenting space use outside of
+                  institutionally authorized research activities.
+                </ListItem>
+
+                <ListItem>
+                  UMSpaceSafe use data is stored in a secure database and
+                  accessible only to UMSpaceSafe administrators for the purpose
+                  of assessing and managing research safety, unless otherwise
+                  anonymized.
+                </ListItem>
+
+                <ListItem>
+                  Your identity and contact information may be shared with
+                  institutional emergency responders (e.g,. COVID-19 response
+                  teams) or state/federal emergency responders (e.g., Maine CDC,
+                  law enforcement) where deemed necessary to ensure personnel
+                  and public safety (e.g., exposure tracing).
+                </ListItem>
+
+                <ListItem>
+                  UMSpaceSafe does not guarantee against infection by COVID-19
+                  or other workplace hazards.
+                </ListItem>
+              </List>
+            </Box>
+
             <Box textAlign="center">
               <Button size="lg" colorScheme="blue">
                 <a href="/api/auth/signin">Sign in</a>
