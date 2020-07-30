@@ -1,5 +1,5 @@
 import { useSession } from "next-auth/client";
-import { Flex, Box, Avatar, Link, Heading, Button } from "@chakra-ui/core";
+import { Flex, Box, Avatar, Link, Button, Text } from "@chakra-ui/core";
 import NextLink from "next/link";
 
 export default function Header() {
@@ -15,7 +15,9 @@ export default function Header() {
     >
       <NextLink href="/" passHref>
         <Link>
-          <Heading>UMSpaceSafe</Heading>
+          <Text fontSize={["sm", "md", "lg", "xl"]} fontWeight="bold">
+            UMSpaceSafe
+          </Text>
         </Link>
       </NextLink>
 
