@@ -11,11 +11,10 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@chakra-ui/core": "^1.0.0-next.4",
-    "@chakra-ui/system": "^1.0.0-next.4",
-    "@chakra-ui/theme-tools": "^1.0.0-next.4",
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
+    "@chakra-ui/core": "^1.0.0-rc.0",
+    "@chakra-ui/system": "^1.0.0-rc.0",
+    "@chakra-ui/theme": "^1.0.0-rc.0",
+    "@chakra-ui/theme-tools": "^1.0.0-rc.0",
     "@prisma/client": "^2.0.1",
     "@reach/combobox": "^0.10.5",
     "date-fns": "^2.14.0",
