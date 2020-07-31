@@ -27,16 +27,16 @@ export default function OffCampusInfoModal() {
             <ModalCloseButton />
             <ModalBody>
               <Text mb={3}>
-                Use the following fields to sign in and out of any research
-                field site or off campus facilities, including research vessels
-                (e.g,. boats) or spaces accessed for research at non-UM
-                facilities.  Again, this pertains to access where you will spend
-                more than 5 minutes alone or any time in the presence of
-                other occupants.  You do not need to document quick access (less
-                than 5 minutes) of unoccupied spaces when wearing face
-                coverings. Please note that UMSpaceSafe does not take the place
-                of any safety policies of other institutions.  Use the
-                "Building" tab for on-campus research facilities
+                Use the following fields to sign in and out of any 1) non-UM
+                research facilities or 2) outdoor research sites, such as field
+                sites, farms or vessels (e.g,. boats). This pertains to room
+                access where you will spend more than 5 minutes alone or any
+                time in the presence of other occupants and to any outdoor work
+                where individuals are required to apply social distancing.
+                Please note that UMSpaceSafe does not take the place of any
+                safety policies of off campus facilities or other institutions. 
+                Use the "Campus Building" tab for UM research facilities in
+                campus buildings.
               </Text>
             </ModalBody>
 
