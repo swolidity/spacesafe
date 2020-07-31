@@ -66,11 +66,13 @@ export default () => {
               and responding to potential COVID-19 exposure or other hazards. 
               All UM personnel and students conducting institutionally
               associated research are required to use this tool when accessing
-              and departing research associated spaces, including 1) any
-              research lab or meeting spaces occupied by others, 2) any research
-              space you will access for more than 5 minutes, even when
-              unoccupied by others, and 3) any off-campus field sites, farms, or
-              non-UM facilities used in research.
+              and departing: 1) any campus research lab or research meeting
+              spaces currently occupied by other individuals, 2) any campus
+              research lab or research meeting space you will occupy for more
+              than 5 minutes, even when unoccupied by others, 3) any spaces in
+              non-UM research facilities used in research, and 4) any outdoor
+              research sites, vessels, or farms where individuals must interact
+              under social distancing.
             </Text>
 
             <Box p={6} mb={6}>
@@ -83,21 +85,20 @@ export default () => {
 
                 <ListItem>
                   UMSpaceSafe data is stored in a secure database and accessible
-                  only to UMSafeSpace administrators for the purpose of
-                  assessing and managing research safety (unless otherwise
-                  anonymized).
+                  only to UMSpaceSafe administrators for the purpose of
+                  facilitating research safety (unless otherwise anonymized).
                 </ListItem>
 
                 <ListItem>
                   Your identity and contact information may be shared with
                   institutional emergency personnel (e.g,. COVID-19 response
                   team) or state/federal emergency responders (e.g., Maine CDC,
-                  law enforcement) where deemed necessary to facilitate UM
-                  personnel and public safety (e.g., exposure tracing).
+                  law enforcement) where deemed necessary for public safety
+                  (e.g., exposure tracing).
                 </ListItem>
 
                 <ListItem>
-                  UMSafeSpace does not guarantee against infection by COVID-19
+                  UMSpaceSafe does not guarantee against infection by COVID-19
                   or other workplace hazards.
                 </ListItem>
 
