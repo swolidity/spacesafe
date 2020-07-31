@@ -5,8 +5,6 @@ import NextLink from "next/link";
 export default function Header() {
   const [session, loading] = useSession();
 
-  console.log({ session });
-
   return (
     <Flex
       justify="space-between"
