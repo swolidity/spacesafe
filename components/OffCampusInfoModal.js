@@ -20,7 +20,7 @@ export default function OffCampusInfoModal() {
         More Info
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay>
           <ModalContent>
             <ModalHeader>Modal Title</ModalHeader>
