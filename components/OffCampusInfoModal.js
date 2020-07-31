@@ -23,7 +23,7 @@ export default function OffCampusInfoModal() {
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay>
           <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
+            <ModalHeader>Off Campus Tab Info</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <Text mb={3}>

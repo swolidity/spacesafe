@@ -23,7 +23,7 @@ export default function UMBuildingInfoModal() {
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay>
           <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
+            <ModalHeader>UM Building Tab Info</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <Text mb={2}>
