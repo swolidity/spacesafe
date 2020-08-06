@@ -25,15 +25,8 @@ export default function History() {
 
       <Stack spacing={3}>
         {data.logs.map((log) => (
-          <Flex
-            align="center"
-            justify="space-between"
-            boxShadow="sm"
-            background="white"
-            p={3}
-            borderRadius="5px"
-          >
-            <Box>
+          <Box boxShadow="sm" background="white" p={3} borderRadius="5px">
+            <Box mb={2}>
               <Flex align="center">
                 <Avatar src={log.user.image} alt={log.user.name} mr={3} />
                 <Box>
@@ -41,15 +34,18 @@ export default function History() {
                 </Box>
               </Flex>
             </Box>
-
-            <Box>
+            <Heading size="sm" mb={2}>
               {log.roomNumber} {log.location.name}
+            </Heading>
+            <Box>
+              <Heading size="sm">Check In</Heading>
+              {format(new Date(log.checkIn), "MM/dd/yyyy HH:mm:ss")}
             </Box>
-
-            <Box>{format(new Date(log.checkIn), "MM/dd/yyyy HH:mm:ss")}</Box>
-
-            <Box>{format(new Date(log.checkOut), "MM/dd/yyyy HH:mm:ss")}</Box>
-          </Flex>
+            <Box>
+              <Heading size="sm">Check Out</Heading>
+              {format(new Date(log.checkOut), "MM/dd/yyyy HH:mm:ss")}
+            </Box>
+          </Box>
         ))}
       </Stack>
     </Box>
