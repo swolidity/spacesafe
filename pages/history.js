@@ -8,6 +8,7 @@ import {
   Text,
 } from "@chakra-ui/core";
 import useSWR from "swr";
+import { format } from "date-fns";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -24,7 +25,14 @@ export default function History() {
 
       <Stack spacing={3}>
         {data.logs.map((log) => (
-          <Flex align="center" justify="space-between">
+          <Flex
+            align="center"
+            justify="space-between"
+            boxShadow="sm"
+            background="white"
+            p={3}
+            borderRadius="5px"
+          >
             <Box>
               <Flex align="center">
                 <Avatar src={log.user.image} alt={log.user.name} mr={3} />
@@ -38,9 +46,9 @@ export default function History() {
               {log.roomNumber} {log.location.name}
             </Box>
 
-            <Box>{log.checkIn}</Box>
+            <Box>{format(new Date(log.checkIn), "MM/dd/yyyy HH:mm:ss")}</Box>
 
-            <Box>{log.checkOut}</Box>
+            <Box>{format(new Date(log.checkOut), "MM/dd/yyyy HH:mm:ss")}</Box>
           </Flex>
         ))}
       </Stack>
