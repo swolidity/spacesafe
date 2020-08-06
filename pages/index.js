@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/core";
 import useSWR, { mutate } from "swr";
 import { format } from "date-fns";
+import NextLink from "next/link";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -120,7 +121,16 @@ export default () => {
 
         <Box mb={4}>{session && <CheckInTabs />}</Box>
 
-        {session && data && <Heading mb={3}>Check Ins</Heading>}
+        {session && data && (
+          <Box>
+            <Heading>Check Ins</Heading>
+            <Box mb={3}>
+              <NextLink href="/history" passHref>
+                <Link>See my history</Link>
+              </NextLink>
+            </Box>
+          </Box>
+        )}
 
         {session && data && (
           <Stack spacing={3}>
