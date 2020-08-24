@@ -2,8 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "postgresql"
-  url = "***"
+  provider = "mysql"
+  url      = "***"
 }
 
 generator client {
