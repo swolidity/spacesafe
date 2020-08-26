@@ -22,6 +22,7 @@ export default async function (req, res) {
       });
     } catch (e) {
       // user already exists so just return true to log them in
+      console.log(e.message);
       user = true;
     }
 
