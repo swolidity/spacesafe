@@ -24,7 +24,7 @@ export default async function (req, res) {
     res.json({ checkIns });
   }
 
-  if (session) {
+  if (req.method === "POST" && session) {
     const { body, query } = req;
 
     if (query.fieldSite) {
