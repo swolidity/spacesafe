@@ -25,6 +25,6 @@ export default async function (req, res) {
       user = true;
     }
 
-    res.json(user);
+    return res.json(user);
   }
 }
