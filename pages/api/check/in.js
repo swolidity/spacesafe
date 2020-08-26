@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export default async function (req, res) {
   const session = await getSession({ req });
 
-  if (req.method === "GET") {
+  if (req.method === "GET" && session) {
     const checkIns = await prisma.activityLog.findMany({
       where: {
         AND: [
@@ -85,4 +85,6 @@ export default async function (req, res) {
       res.json(checkin);
     }
   }
+
+  res.send("Unauthorized");
 }
