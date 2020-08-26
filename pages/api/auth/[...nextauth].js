@@ -4,7 +4,9 @@ import fetch from "isomorphic-unfetch";
 
 const site = process.env.NEXT_PUBLIC_SITE;
 
-const signin = async (profile, account, metadata) => {
+console.log({ site });
+
+const signIn = async (profile, account, metadata) => {
   try {
     const res = await fetch(`${site}/api/users`, {
       method: "POST",
@@ -36,7 +38,7 @@ const options = {
   ],
 
   callbacks: {
-    signin,
+    signIn,
   },
 };
 
