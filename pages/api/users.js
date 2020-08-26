@@ -4,7 +4,8 @@ const prisma = new PrismaClient();
 
 export default async function (req, res) {
   if (req.method === "GET") {
-    return await prisma.user.findMany();
+    const users = await prisma.user.findMany();
+    return res.json(users);
   }
 
   if (req.method === "POST") {
