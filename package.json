@@ -23,7 +23,7 @@
     "fielder": "^1.3.0",
     "isomorphic-unfetch": "^3.0.0",
     "next": "9.4.4",
-    "next-auth": "^2.0.1",
+    "next-auth": "^3.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "swr": "^0.2.3"
