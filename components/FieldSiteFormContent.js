@@ -141,8 +141,8 @@ export default function FieldSiteFormContent() {
       <FormControl>
         <FormLabel>Notes</FormLabel>
         <FormHelperText mb={1}>
-          Provide other info as needed (e.g., UM or Non-UM personnel unable to
-          access UMSpaceSafe, COVID safety concerns)
+          Provide other info as needed (e.g., UM/UMM or Non-UM personnel unable
+          to access UMSpaceSafe, COVID safety concerns)
         </FormHelperText>
 
         <Textarea

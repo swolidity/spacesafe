@@ -35,7 +35,7 @@ export default function OffCampusInfoModal() {
                 where individuals are required to apply social distancing.
                 Please note that UMSpaceSafe does not take the place of any
                 safety policies of off campus facilities or other institutions. 
-                Use the "Campus Building" tab for UM research facilities in
+                Use the "Campus Building" tab for UM/UMM research facilities in
                 campus buildings.
               </Text>
             </ModalBody>

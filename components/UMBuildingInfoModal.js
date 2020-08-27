@@ -23,13 +23,13 @@ export default function UMBuildingInfoModal() {
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay>
           <ModalContent>
-            <ModalHeader>UM Building Tab Info</ModalHeader>
+            <ModalHeader>UM/UMM Building Tab Info</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <Text mb={2}>
-                Use the following fields to sign in and out of any UM building
-                space (lab, research meeting area) where you will spend more
-                than 5 minutes alone or any time in the presence of
+                Use the following fields to sign in and out of any UM/UMM
+                building space (lab, research meeting area) where you will spend
+                more than 5 minutes alone or any time in the presence of
                 other occupants.  You do not need to document quick access (less
                 than 5 minutes) of unoccupied spaces when wearing face
                 coverings.  Use the "Off Campus" tab for research at field

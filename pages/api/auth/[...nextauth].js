@@ -4,8 +4,6 @@ import fetch from "isomorphic-unfetch";
 
 const site = process.env.NEXT_PUBLIC_SITE;
 
-console.log({ site });
-
 const signIn = async (profile, account, metadata) => {
   try {
     const res = await fetch(`${site}/api/users`, {

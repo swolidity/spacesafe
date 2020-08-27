@@ -110,8 +110,8 @@ export default () => {
 
           <FormHelperText mb={1}>
             Provide other info as needed (e.g., room for building not in list,
-            UM or Non-UM personnel unable to access UMSpaceSafe, COVID safety
-            concerns)
+            UM/UMM or Non-UM personnel unable to access UMSpaceSafe, COVID
+            safety concerns)
           </FormHelperText>
 
           <Textarea

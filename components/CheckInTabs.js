@@ -15,7 +15,7 @@ export default function CheckInTabs() {
     <Box>
       <Tabs>
         <TabList>
-          <Tab>UM Building</Tab>
+          <Tab>UM/UMM Building</Tab>
           <Tab>Off Campus Site</Tab>
         </TabList>
 
