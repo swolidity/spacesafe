@@ -1,27 +1,33 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import fetch from "isomorphic-unfetch";
+import { PrismaClient } from "@prisma/client";
 
 const site = process.env.NEXT_PUBLIC_SITE;
 
-const signIn = async (user, account, profile) => {
-  try {
-    const res = await fetch(`${site}/api/users`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...user,
-      }),
-    });
+const prisma = new PrismaClient();
 
-    const data = await res.json();
+const signIn = async (user, account, profile) => {
+  let findOrCreateUser;
+  try {
+    findOrCreateUser = await prisma.user.upsert({
+      create: {
+        name: user.name,
+        email: user.email,
+        image: user.image,
+      },
+      update: {},
+      where: {
+        email: user.email,
+      },
+    });
   } catch (e) {
-    console.log("ERROR", e.message);
+    // user already exists so just return true to log them in
+    console.log(e.message);
+    findOrCreateUser = true;
   }
 
-  return true;
+  return findOrCreateUser;
 };
 
 const options = {
