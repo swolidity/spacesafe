@@ -4,7 +4,7 @@ import fetch from "isomorphic-unfetch";
 
 const site = process.env.NEXT_PUBLIC_SITE;
 
-const signIn = async (profile, account, metadata) => {
+const signIn = async (user, account, profile) => {
   try {
     const res = await fetch(`${site}/api/users`, {
       method: "POST",
@@ -12,12 +12,11 @@ const signIn = async (profile, account, metadata) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        ...profile,
+        ...user,
       }),
     });
 
     const data = await res.json();
-    console.log({ data });
   } catch (e) {
     console.log("ERROR", e.message);
   }
