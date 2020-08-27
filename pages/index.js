@@ -62,26 +62,34 @@ export default () => {
           <Box backgroundColor="white" borderRadius="sm" p={3}>
             <Heading>Welcome.</Heading>
 
-            <Text mt={6} mb={6}>
-              UMSpaceSafe logs research space use for the purpose of mitigating
-              and responding to potential COVID-19 exposure or other hazards. 
-              All UM personnel and students conducting institutionally
-              associated research are required to use this tool when accessing
-              and departing: 1) any campus research lab or research meeting
-              spaces currently occupied by other individuals, 2) any campus
-              research lab or research meeting space you will occupy for more
-              than 5 minutes, even when unoccupied by others, 3) any spaces in
-              non-UM research facilities used in research, and 4) any outdoor
-              research sites, vessels, or farms where individuals must interact
-              under social distancing.
+            <Text mt={6} mb={3}>
+              UMSpaceSafe logs research space use for the purpose of mitigating
+              and responding to potential COVID-19 exposure or other hazards.
+              All UM/UMM faculty, staff, and students working on approved
+              research are required to use this tool when entering and leaving:
             </Text>
+
+            <Box p={6} mb={2}>
+              <List spacing={2} styleType="disc">
+                <ListItem>
+                  UMaine/UMM, as well as Non-UMaine/UMM, facilities (e.g. labs
+                  or meeting spaces) used for their research that they will
+                  occupy for more than 5 minutes, whether occupied or unoccupied
+                  by others at the time of their entrance
+                </ListItem>
+
+                <ListItem>
+                  Outdoor sites, vessels, or farms used for their research
+                </ListItem>
+              </List>
+            </Box>
 
             <Box p={6} mb={6}>
               <List spacing={2} mb={2} styleType="disc">
                 <ListItem>
                   UMSpaceSafe does not passively track your activities and is
                   not intended for documenting space use outside of
-                  institutionally authorized research activities.
+                  institutionally authorized research activities.
                 </ListItem>
 
                 <ListItem>
@@ -92,10 +100,10 @@ export default () => {
 
                 <ListItem>
                   Your identity and contact information may be shared with
-                  institutional emergency personnel (e.g,. COVID-19 response
+                  institutional emergency personnel (e.g. COVID-19 response
                   team) or state/federal emergency responders (e.g., Maine CDC,
                   law enforcement) where deemed necessary for public safety
-                  (e.g., exposure tracing).
+                  (e.g. exposure tracing).
                 </ListItem>
 
                 <ListItem>
@@ -105,8 +113,16 @@ export default () => {
 
                 <ListItem>
                   This tool does not take the place of other UM COVID-related
-                  policies and procedures (UM COVID INFO SITE LINK) nor the
-                  place of other institutional approvals required for research.
+                  policies and procedures (
+                  <Link
+                    color="blue"
+                    href="https://umaine.edu/return"
+                    isExternal
+                  >
+                    https://umaine.edu/return
+                  </Link>
+                  ) nor the place of other institutional approvals required for
+                  research.
                 </ListItem>
               </List>
             </Box>
