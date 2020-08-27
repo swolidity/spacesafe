@@ -13,11 +13,15 @@ export default async function (req, res) {
 
     let user;
     try {
-      user = await prisma.user.create({
-        data: {
+      user = await prisma.user.upsert({
+        create: {
           name: body.name,
           email: body.email,
           image: body.image,
+        },
+        update: {},
+        where: {
+          email: body.email,
         },
       });
     } catch (e) {
