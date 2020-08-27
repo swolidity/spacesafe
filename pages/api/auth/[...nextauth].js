@@ -2,10 +2,6 @@ import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import fetch from "isomorphic-unfetch";
 
-const site = process.env.NEXT_PUBLIC_SITE;
-
-console.log("NEXTAUTH:", process.env.NEXTAUTH_URL);
-
 const signIn = async (profile, account, metadata) => {
   try {
     const res = await fetch(`${site}/api/users`, {
@@ -19,6 +15,7 @@ const signIn = async (profile, account, metadata) => {
     });
 
     const data = await res.json();
+    console.log({ data });
   } catch (e) {
     console.log("ERROR", e.message);
   }
