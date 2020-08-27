@@ -4,6 +4,8 @@ import fetch from "isomorphic-unfetch";
 
 const site = process.env.NEXT_PUBLIC_SITE;
 
+console.log("NEXTAUTH:", process.env.NEXTAUTH_URL);
+
 const signIn = async (profile, account, metadata) => {
   try {
     const res = await fetch(`${site}/api/users`, {
@@ -25,8 +27,6 @@ const signIn = async (profile, account, metadata) => {
 };
 
 const options = {
-  site,
-
   // Configure one or more authentication providers
   providers: [
     Providers.Google({
