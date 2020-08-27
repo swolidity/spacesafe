@@ -2,6 +2,8 @@ import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import fetch from "isomorphic-unfetch";
 
+const site = process.env.NEXT_PUBLIC_SITE;
+
 const signIn = async (profile, account, metadata) => {
   try {
     const res = await fetch(`${site}/api/users`, {
