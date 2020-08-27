@@ -21,7 +21,7 @@ export default async function (req, res) {
       },
     });
 
-    res.json({ checkIns });
+    return res.json({ checkIns });
   } else if (req.method === "POST" && session) {
     const { body, query } = req;
 
@@ -80,9 +80,9 @@ export default async function (req, res) {
         },
       });
 
-      res.json(checkin);
+      return res.json(checkin);
     }
   } else {
-    res.send("Unauthorized");
+    return res.send("Unauthorized");
   }
 }
