@@ -66,6 +66,7 @@ export default () => {
                 src="/UMaine_fullcrest_logo4c.jpg"
                 alt="Umaine Logo"
                 height="80px"
+                ignoreFallback
               />
             </Flex>
 

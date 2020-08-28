@@ -15,7 +15,12 @@ export default function Header() {
     >
       <NextLink href="/" passHref>
         <Link>
-          <Image src="/spacesafe@2x.png" alt="SpaceSafe" height="80px" />
+          <Image
+            src="/spacesafe@2x.png"
+            alt="SpaceSafe"
+            height="80px"
+            ignoreFallback
+          />
         </Link>
       </NextLink>
 
