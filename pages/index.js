@@ -13,6 +13,7 @@ import {
   useToast,
   List,
   ListItem,
+  Image,
 } from "@chakra-ui/core";
 import useSWR, { mutate } from "swr";
 import { format } from "date-fns";
@@ -60,6 +61,14 @@ export default () => {
       <Box p={6} style={{ maxWidth: "800px", margin: "0 auto" }}>
         {!session && (
           <Box backgroundColor="white" borderRadius="sm" p={3}>
+            <Flex mb={2} justify="center">
+              <Image
+                src="/UMaine_fullcrest_logo4c.jpg"
+                alt="Umaine Logo"
+                height="80px"
+              />
+            </Flex>
+
             <Heading>Welcome.</Heading>
 
             <Text mt={6} mb={3}>
@@ -75,11 +84,11 @@ export default () => {
                   UMaine/UMM, as well as Non-UMaine/UMM, facilities (e.g. labs
                   or meeting spaces) used for their research that they will
                   occupy for more than 5 minutes, whether occupied or unoccupied
-                  by others at the time of their entrance
+                  by others at the time of their entrance.
                 </ListItem>
 
                 <ListItem>
-                  Outdoor sites, vessels, or farms used for their research
+                  Outdoor sites, vessels, or farms used for their research.
                 </ListItem>
               </List>
             </Box>
