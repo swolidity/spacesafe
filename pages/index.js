@@ -95,6 +95,9 @@ export default () => {
             </Box>
 
             <Box p={6} mb={6}>
+              <Heading size="sm" mb={2}>
+                Additional Info
+              </Heading>
               <List spacing={2} mb={2} styleType="disc">
                 <ListItem>
                   UMSpaceSafe does not passively track your activities and is
