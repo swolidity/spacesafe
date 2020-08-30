@@ -174,7 +174,9 @@ export default () => {
                 backgroundColor="white"
               >
                 <Box>
-                  <Text>{checkIn.location.name}</Text>
+                  <Text>
+                    {checkIn.roomNumber} {checkIn.location.name}
+                  </Text>
                   <Box>
                     {format(new Date(checkIn.checkIn), "MM/dd/yyyy HH:mm:ss")}
                   </Box>
