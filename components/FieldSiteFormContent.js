@@ -108,14 +108,14 @@ export default function FieldSiteFormContent() {
         <FormLabel>Field Site</FormLabel>
 
         <FormHelperText mb={1}>
-          Search for field site and click to select from dropdown. If field site
-          is not found enter full name in to create a new record in the
-          database.
+          Search for off campus site and click to select from dropdown. If off
+          campus site is not found enter full name in to create a new record in
+          the database.
         </FormHelperText>
 
         <div {...getComboboxProps()}>
           <Input
-            placeholder="Search for a field site..."
+            placeholder="Search for a off campus site..."
             {...getInputProps()}
           />
 
