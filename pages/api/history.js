@@ -17,6 +17,9 @@ export default async function (req, res) {
           email: session.user.email,
         },
       },
+      orderBy: {
+        checkIn: "desc",
+      },
     });
 
     res.json({ logs });
