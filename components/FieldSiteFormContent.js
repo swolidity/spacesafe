@@ -105,7 +105,7 @@ export default function FieldSiteFormContent() {
   return (
     <Box shadow="sm" padding={5} backgroundColor="white">
       <FormControl mb={2}>
-        <FormLabel>Field Site</FormLabel>
+        <FormLabel>Off Campus Site</FormLabel>
 
         <FormHelperText mb={1}>
           Search for off campus site and click to select from dropdown. If off
