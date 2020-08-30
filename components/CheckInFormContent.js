@@ -102,7 +102,7 @@ export default () => {
             Enter complete room number (e.g., 313b)
           </FormHelperText>
 
-          <Input type="number" {...roomNumberProps} placeholder="Room number" />
+          <Input {...roomNumberProps} placeholder="Room number" />
         </FormControl>
 
         <FormControl>
