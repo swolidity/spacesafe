@@ -26,7 +26,7 @@ export default function Header() {
 
       {!session && (
         <Button colorScheme="blue">
-          <a href="/api/auth/signin">Sign in</a>
+          <a href="/api/auth/signin/google">Sign in</a>
         </Button>
       )}
       {session && (

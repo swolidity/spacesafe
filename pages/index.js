@@ -142,7 +142,7 @@ export default () => {
 
             <Box textAlign="center">
               <Button size="lg" colorScheme="blue">
-                <a href="/api/auth/signin">Sign in</a>
+                <a href="/api/auth/signin/google">Sign in</a>
               </Button>
             </Box>
           </Box>
