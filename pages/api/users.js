@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import { getSession } from "next-auth/client";
 
 const prisma = new PrismaClient();
 
@@ -13,7 +14,7 @@ export default async function (req, res) {
     });
 
     if (!user.isAdmin) {
-      throw new Error();
+      res.status(403).send("Forbidden");
     }
 
     const users = await prisma.user.findMany();

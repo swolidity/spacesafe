@@ -13,7 +13,7 @@ export default async function (req, res) {
       },
     });
 
-    if (!user.isAdmin) throw new Error("Not authorized.");
+    if (!user.isAdmin) res.status(403).send("Forbidden");
 
     const logs = await prisma.activityLog.findMany({
       include: {
@@ -23,5 +23,7 @@ export default async function (req, res) {
     });
 
     res.json({ logs });
+  } else {
+    res.status(401).send("Unauthorized");
   }
 }

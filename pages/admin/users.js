@@ -9,11 +9,18 @@ import {
 } from "@chakra-ui/core";
 import useSWR from "swr";
 import AdminNavbar from "../../components/AdminNavbar";
+import { useSession } from "next-auth/client";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function AdminUsersPage() {
+  const [session, loading] = useSession();
   const { data, error } = useSWR("/api/admin/users", fetcher);
+
+  if (loading) return null;
+
+  if (!loading && !session?.user?.isAdmin)
+    return <Box p={6}>Access Denied</Box>;
 
   if (!data) return <Box p={6}>loading...</Box>;
 
