@@ -141,8 +141,13 @@ export default () => {
             </Box>
 
             <Box textAlign="center">
-              <Button size="lg" colorScheme="blue">
-                <a href="/api/auth/signin/google">Sign in</a>
+              <Button
+                as="a"
+                size="lg"
+                colorScheme="blue"
+                href="/api/auth/signin/google"
+              >
+                Sign in
               </Button>
             </Box>
           </Box>

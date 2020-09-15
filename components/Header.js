@@ -25,8 +25,8 @@ export default function Header() {
       </NextLink>
 
       {!session && (
-        <Button colorScheme="blue">
-          <a href="/api/auth/signin/google">Sign in</a>
+        <Button as="a" colorScheme="blue" href="/api/auth/signin/google">
+          Sign in
         </Button>
       )}
       {session && (
