@@ -3,7 +3,19 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default async function (req, res) {
-  if (req.method === "GET") {
+  const session = await getSession({ req });
+
+  if (req.method === "GET" && session) {
+    const user = await prisma.user.findOne({
+      where: {
+        email: session.user.email,
+      },
+    });
+
+    if (!user.isAdmin) {
+      throw new Error();
+    }
+
     const users = await prisma.user.findMany();
     return res.json(users);
   }
