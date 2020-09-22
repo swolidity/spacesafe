@@ -1,8 +1,13 @@
 import { PrismaClient } from "@prisma/client";
+import { getSession } from "next-auth/client";
 
 const prisma = new PrismaClient();
 
 export default async function (req, res) {
+  const session = await getSession({ req });
+
+  if (!session) res.status(401).send("Unauthorized");
+
   if (req.method === "GET") {
     if (req.query.fieldSite == "true") {
       const locations = await prisma.location.findMany({
