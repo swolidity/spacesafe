@@ -63,12 +63,8 @@ export default function FieldSiteFormContent() {
 
       transformed.location = searchTerm;
 
-      toast({
-        title: "Successfully checked in.",
-        status: "success",
-        duration: 9000,
-        isClosable: true,
-      });
+      if (!transformed.location)
+        return alert("Please enter or select an Off Campus Site.");
 
       mutate(
         "/api/check/in",
@@ -84,14 +80,31 @@ export default function FieldSiteFormContent() {
             }
           );
 
+          if (!checkInRes.ok) {
+            toast({
+              title:
+                "Error checking in. Make sure you have selected an Off Campus Site.",
+              status: "error",
+              duration: 9000,
+              isClosable: true,
+            });
+          }
+
           const checkIn = await checkInRes.json();
+
+          toast({
+            title: "Successfully checked in.",
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+          });
 
           return { ...data, checkIns: [...data.checkIns, checkIn] };
         },
         false
       );
     },
-    [fields]
+    [fields, searchTerm]
   );
 
   function handleSearchTermChange(event) {
@@ -115,6 +128,7 @@ export default function FieldSiteFormContent() {
 
         <div {...getComboboxProps()}>
           <Input
+            isRequired
             placeholder="Search for a off campus site..."
             {...getInputProps()}
           />
