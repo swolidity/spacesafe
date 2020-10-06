@@ -76,7 +76,8 @@ export default () => {
               UMSpaceSafe logs research space use for the purpose of mitigating
               and responding to potential COVID-19 exposure or other hazards.
               All UM/UMM faculty, staff, and students working on approved
-              research are required to use this tool when entering and leaving:
+              research are encouraged to use this tool when entering and
+              leaving:
             </Text>
 
             <Box p={6} mb={2}>
@@ -84,8 +85,8 @@ export default () => {
                 <ListItem>
                   UMaine/UMM, as well as Non-UMaine/UMM, facilities (e.g. labs
                   or meeting spaces) used for their research that they will
-                  occupy for more than 5 minutes, whether occupied or unoccupied
-                  by others at the time of their entrance.
+                  occupy for more than 15 minutes, whether occupied or
+                  unoccupied by others at the time of their entrance.
                 </ListItem>
 
                 <ListItem>
@@ -136,6 +137,18 @@ export default () => {
                   </Link>
                   ) nor the place of other institutional approvals required for
                   research.
+                </ListItem>
+
+                <ListItem>
+                  For more information or a reasonable accommodation, please
+                  contact Tammy Crosby, 207.581.1618 or{" "}
+                  <Link
+                    style={{ color: "blue" }}
+                    href="mailto:tammy.crosby@maine.edu"
+                  >
+                    tammy.crosby@maine.edu
+                  </Link>
+                  .
                 </ListItem>
               </List>
             </Box>
