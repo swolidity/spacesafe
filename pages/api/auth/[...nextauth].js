@@ -16,7 +16,9 @@ const signIn = async (user, account, profile) => {
         email: user.email,
         image: user.image,
       },
-      update: {},
+      update: {
+        image: user.image,
+      },
       where: {
         email: user.email,
       },
