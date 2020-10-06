@@ -73,20 +73,22 @@ export default () => {
             <Heading>Welcome.</Heading>
 
             <Text mt={6} mb={3}>
-              UMSpaceSafe logs research space use for the purpose of mitigating
-              and responding to potential COVID-19 exposure or other hazards.
-              All UM/UMM faculty, staff, and students working on approved
-              research are encouraged to use this tool when entering and
-              leaving:
+              UMSpaceSafe logs research (and similar scholarship) space use for
+              the purpose of mitigating and responding to potential COVID-19
+              exposure. All UM/UMM faculty, staff, and students working on
+              research are strongly encouraged to use this tool as means of
+              meeting current requirements to log space use and limit space
+              occupancy. The tool should be used whenever individuals will
+              co-occupy research (or similar scholarship) spaces for more than
+              15 minutes, whether planned or unplanned at the time of their
+              entry, including:
             </Text>
 
             <Box p={6} mb={2}>
               <List spacing={2} styleType="disc">
                 <ListItem>
                   UMaine/UMM, as well as Non-UMaine/UMM, facilities (e.g. labs
-                  or meeting spaces) used for their research that they will
-                  occupy for more than 15 minutes, whether occupied or
-                  unoccupied by others at the time of their entrance.
+                  or meeting spaces)
                 </ListItem>
 
                 <ListItem>
