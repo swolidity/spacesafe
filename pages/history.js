@@ -49,11 +49,19 @@ export default function History() {
             </Heading>
             <Box>
               <Heading size="sm">Check In</Heading>
-              {format(new Date(log.checkIn), "MM/dd/yyyy HH:mm:ss")}
+              {format(
+                new Date(log.editedCheckIn ? log.editedCheckIn : log.checkIn),
+                "MM/dd/yyyy HH:mm:ss"
+              )}
             </Box>
             <Box>
               <Heading size="sm">Check Out</Heading>
-              {format(new Date(log.checkOut), "MM/dd/yyyy HH:mm:ss")}
+              {format(
+                new Date(
+                  log.editedCheckOut ? log.editedCheckOut : log.checkOut
+                ),
+                "MM/dd/yyyy HH:mm:ss"
+              )}
             </Box>
           </Box>
         ))}
