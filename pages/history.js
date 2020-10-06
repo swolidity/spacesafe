@@ -6,9 +6,11 @@ import {
   Stack,
   Avatar,
   Text,
+  Link,
 } from "@chakra-ui/core";
 import useSWR from "swr";
 import { format } from "date-fns";
+import NextLink from "next/link";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -26,14 +28,22 @@ export default function History() {
       <Stack spacing={3}>
         {data.logs.map((log) => (
           <Box boxShadow="sm" background="white" p={3} borderRadius="5px">
-            <Box mb={2}>
-              <Flex align="center">
-                <Avatar src={log.user.image} alt={log.user.name} mr={3} />
-                <Box>
-                  <Text>{log.user.name}</Text>
-                </Box>
-              </Flex>
-            </Box>
+            <Flex justify="space-between">
+              <Box mb={2}>
+                <Flex align="center">
+                  <Avatar src={log.user.image} alt={log.user.name} mr={3} />
+                  <Box>
+                    <Text>{log.user.name}</Text>
+                  </Box>
+                </Flex>
+              </Box>
+              <Box>
+                <NextLink href="/edit/[id]" as={`/edit/${log.id}`} passHref>
+                  <Link>Edit</Link>
+                </NextLink>
+              </Box>
+            </Flex>
+
             <Heading size="sm" mb={2}>
               {log.roomNumber} {log.location.name}
             </Heading>

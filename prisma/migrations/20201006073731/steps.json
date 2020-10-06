@@ -1,0 +1,19 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "ActivityLog",
+      "field": "editedCheckIn",
+      "type": "DateTime",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ActivityLog",
+      "field": "editedCheckOut",
+      "type": "DateTime",
+      "arity": "Optional"
+    }
+  ]
+}
