@@ -30,11 +30,11 @@ export default function OffCampusInfoModal() {
                 Use the following fields to sign in and out of any 1) non-UM
                 research facilities or 2) outdoor research sites, such as field
                 sites, farms or vessels (e.g,. boats). This pertains to room
-                access where you will spend more than 5 minutes alone or any
-                time in the presence of other occupants and to any outdoor work
-                where individuals are required to apply social distancing.
+                access where you will spend more than 15 minutes in the presence
+                of other occupants (planned or unplanned) and to any outdoor
+                work where individuals are required to apply social distancing.
                 Please note that UMSpaceSafe does not take the place of any
-                safety policies of off campus facilities or other institutions. 
+                safety policies of off campus facilities or other institutions.
                 Use the "Campus Building" tab for UM/UMM research facilities in
                 campus buildings.
               </Text>

@@ -29,11 +29,11 @@ export default function UMBuildingInfoModal() {
               <Text mb={2}>
                 Use the following fields to sign in and out of any UM/UMM
                 building space (lab, research meeting area) where you will spend
-                more than 5 minutes alone or any time in the presence of
-                other occupants.  You do not need to document quick access (less
-                than 5 minutes) of unoccupied spaces when wearing face
-                coverings.  Use the "Off Campus" tab for research at field
-                sites, vessels, farms or in buildings/spaces at non-UM
+                more than 15 minutes in the presence of other occupants (planned
+                or unplanned). You do not need to document quick access (less
+                than 15 minutes) when wearing face coverings and maintaining
+                required distancing. Use the "Off Campus" tab for research at
+                field sites, vessels, farms or in buildings/spaces at non-UM
                 institutions.
               </Text>
             </ModalBody>
