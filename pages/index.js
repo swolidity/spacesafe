@@ -171,14 +171,16 @@ export default () => {
         <Box mb={4}>{session && <CheckInTabs />}</Box>
 
         {session && data && (
-          <Box>
+          <Flex justify="space-between" align="center">
             <Heading>Check Ins</Heading>
             <Box mb={3}>
               <NextLink href="/history" passHref>
-                <Link>See my history</Link>
+                <Button as="a" colorScheme="blue">
+                  See or edit my history
+                </Button>
               </NextLink>
             </Box>
-          </Box>
+          </Flex>
         )}
 
         {session && data && (

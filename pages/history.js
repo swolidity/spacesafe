@@ -28,7 +28,7 @@ export default function History() {
       <Stack spacing={3}>
         {data.logs.map((log) => (
           <Box boxShadow="sm" background="white" p={3} borderRadius="5px">
-            <Flex justify="space-between">
+            <Flex justify="space-between" align="center">
               <Box mb={2}>
                 <Flex align="center">
                   <Avatar src={log.user.image} alt={log.user.name} mr={3} />
