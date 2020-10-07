@@ -29,6 +29,10 @@ export default function FieldSiteFormContent() {
     name: "location",
   });
 
+  const [guestsProps] = useField({
+    name: "guests",
+  });
+
   const [notesProps] = useField({
     name: "notes",
   });
@@ -88,16 +92,16 @@ export default function FieldSiteFormContent() {
               duration: 9000,
               isClosable: true,
             });
+          } else {
+            toast({
+              title: "Successfully checked in.",
+              status: "success",
+              duration: 9000,
+              isClosable: true,
+            });
           }
 
           const checkIn = await checkInRes.json();
-
-          toast({
-            title: "Successfully checked in.",
-            status: "success",
-            duration: 9000,
-            isClosable: true,
-          });
 
           return { ...data, checkIns: [...data.checkIns, checkIn] };
         },
@@ -150,6 +154,18 @@ export default function FieldSiteFormContent() {
               ))}
           </List>
         </div>
+      </FormControl>
+
+      <FormControl>
+        <FormLabel>Guest Info</FormLabel>
+
+        <FormHelperText mb={1}>
+          Enter name and contact info (email or phone) of guests or other
+          individuals unable to log their own space use. Separate multiple
+          guests with commas.
+        </FormHelperText>
+
+        <Textarea placeholder="Guest info..." {...guestsProps} />
       </FormControl>
 
       <FormControl>

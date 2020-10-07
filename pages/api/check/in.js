@@ -49,6 +49,7 @@ export default async function (req, res) {
               id: location.id,
             },
           },
+          guests: body.guests,
           notes: body.notes,
         },
         include: {
@@ -71,6 +72,7 @@ export default async function (req, res) {
             },
           },
           roomNumber: body.roomNumber ? body.roomNumber : null,
+          guests: body.guests,
           notes: body.notes,
         },
         include: {

@@ -33,6 +33,10 @@ export default () => {
     name: "roomNumber",
   });
 
+  const [guestsProps] = useField({
+    name: "guests",
+  });
+
   const [notesProps] = useField({
     name: "notes",
   });
@@ -45,13 +49,6 @@ export default () => {
         (acc, [key, field]) => ({ ...acc, [key]: field.value }),
         {}
       );
-
-      toast({
-        title: "Successfully checked in.",
-        status: "success",
-        duration: 9000,
-        isClosable: true,
-      });
 
       mutate(
         "/api/check/in",
@@ -66,6 +63,22 @@ export default () => {
               body: JSON.stringify(transformed),
             }
           );
+
+          if (!checkInRes.ok) {
+            toast({
+              title: "Error checking in.",
+              status: "error",
+              duration: 9000,
+              isClosable: true,
+            });
+          } else {
+            toast({
+              title: "Successfully checked in.",
+              status: "success",
+              duration: 9000,
+              isClosable: true,
+            });
+          }
 
           const checkIn = await checkInRes.json();
 
@@ -103,6 +116,18 @@ export default () => {
           </FormHelperText>
 
           <Input {...roomNumberProps} placeholder="Room number" />
+        </FormControl>
+
+        <FormControl>
+          <FormLabel>Guest Info</FormLabel>
+
+          <FormHelperText mb={1}>
+            Enter name and contact info (email or phone) of guests or other
+            individuals unable to log their own space use. Separate multiple
+            guests with commas.
+          </FormHelperText>
+
+          <Textarea placeholder="Guest info..." {...guestsProps} />
         </FormControl>
 
         <FormControl>
