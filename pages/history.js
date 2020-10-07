@@ -39,7 +39,9 @@ export default function History() {
               </Box>
               <Box>
                 <NextLink href="/edit/[id]" as={`/edit/${log.id}`} passHref>
-                  <Link>Edit</Link>
+                  <Button as="a" colorScheme="blue">
+                    Edit
+                  </Button>
                 </NextLink>
               </Box>
             </Flex>
