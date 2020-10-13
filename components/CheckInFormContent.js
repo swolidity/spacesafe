@@ -134,9 +134,8 @@ export default () => {
           <FormLabel>Notes</FormLabel>
 
           <FormHelperText mb={1}>
-            Provide other info as needed (e.g., room for building not in list,
-            UM/UMM or Non-UM personnel unable to access UMSpaceSafe, COVID
-            safety concerns)
+            Provide other info as needed (e.g., Building name not in drop down,
+            COVID safety concerns etc,)
           </FormHelperText>
 
           <Textarea
