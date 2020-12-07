@@ -30,7 +30,7 @@ export default function CheckInTabs() {
     alertBlock = (
       <Alert status="info" my={2}>
         <AlertIcon />
-        <AlertTitle mr={2}>
+        <AlertTitle mr={1}>
           The CDC recently updated its guidance for what constitutes a contact
           for COVID tracing to include the cumulative amount of time interacting
           with an infected individiual over the course of a given day (15
@@ -38,12 +38,7 @@ export default function CheckInTabs() {
           you to document even short term contacts with other individuals you
           might encounter repeatedly throughout your day.
         </AlertTitle>
-        <CloseButton
-          onClick={handleAlertClose}
-          position="absolute"
-          right="8px"
-          top="8px"
-        />
+        <CloseButton onClick={handleAlertClose} />
       </Alert>
     );
   } else {
